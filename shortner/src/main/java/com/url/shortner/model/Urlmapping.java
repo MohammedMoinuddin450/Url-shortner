@@ -21,7 +21,7 @@ public class Urlmapping{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private int click_count;
-    private String originalurl;
+    private String Originalurl;
     private String shorturl;
     private LocalDateTime createdTime;
 

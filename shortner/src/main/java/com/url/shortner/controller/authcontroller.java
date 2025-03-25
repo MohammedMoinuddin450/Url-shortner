@@ -5,13 +5,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.url.shortner.model.Users;
 import com.url.shortner.service.userService;
-
 import com.url.shortner.DTOs.Registerrequest;
 import com.url.shortner.DTOs.loginrequest;
-
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -34,7 +31,7 @@ public class authcontroller {
         return ResponseEntity.ok("user created successfully");
     }
 
-    @PostMapping("public/login")
+    @PostMapping("/public/login")
     public ResponseEntity<?> loginuser(@RequestBody loginrequest request){
 
         return ResponseEntity.ok(userservice.authenticateuser(request));
