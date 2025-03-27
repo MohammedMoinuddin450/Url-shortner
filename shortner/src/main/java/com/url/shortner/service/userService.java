@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.security.core.Authentication;
-import com.url.shortner.DTOs.loginrequest;
+import com.url.shortner.DTOs.loginrequestDTO;
 import com.url.shortner.security.JWT.JWTresponse;
 import com.url.shortner.security.JWT.JWTutils;
 import com.url.shortner.UserRepository.UserRepository;
@@ -30,7 +30,7 @@ public class userService {
 
     }
 
-    public JWTresponse authenticateuser(loginrequest request) {
+    public JWTresponse authenticateuser(loginrequestDTO request) {
        Authentication authentication=authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);    

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.url.shortner.model.Users;
 import com.url.shortner.service.userService;
-import com.url.shortner.DTOs.Registerrequest;
-import com.url.shortner.DTOs.loginrequest;
+import com.url.shortner.DTOs.RegisterrequestDTO;
+import com.url.shortner.DTOs.loginrequestDTO;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -19,7 +19,7 @@ public class authcontroller {
     private userService userservice;
 
     @PostMapping("public/register")
-    public ResponseEntity<?> registeruser(@RequestBody Registerrequest request){
+    public ResponseEntity<?> registeruser(@RequestBody RegisterrequestDTO request){
         Users user=new Users();
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());
@@ -32,7 +32,7 @@ public class authcontroller {
     }
 
     @PostMapping("/public/login")
-    public ResponseEntity<?> loginuser(@RequestBody loginrequest request){
+    public ResponseEntity<?> loginuser(@RequestBody loginrequestDTO request){
 
         return ResponseEntity.ok(userservice.authenticateuser(request));
 }
