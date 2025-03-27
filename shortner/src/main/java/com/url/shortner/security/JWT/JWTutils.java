@@ -54,7 +54,7 @@ public class JWTutils {
     }
 
     private Key key(){
-        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));//h256
+        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));//sha256
     }
 
     public boolean validateToken(String authToken) {
