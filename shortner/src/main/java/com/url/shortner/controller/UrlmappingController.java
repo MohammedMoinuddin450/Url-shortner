@@ -57,9 +57,10 @@ public class UrlmappingController {
 
       @GetMapping("/analytics/{shortUrl}")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<List<ClickeventDTO>> getUrlAnalytics(@PathVariable String shortUrl,
-                                                               @RequestParam("startDate") String startDate,
-                                                               @RequestParam("endDate") String endDate){
+    public ResponseEntity<List<ClickeventDTO>> getUrlAnalytics(
+                                        @PathVariable String shortUrl,
+                                    @RequestParam("startDate") String startDate,
+                                        @RequestParam("endDate") String endDate){
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         LocalDateTime start = LocalDateTime.parse(startDate, formatter);
         LocalDateTime end = LocalDateTime.parse(endDate, formatter);
@@ -70,9 +71,10 @@ public class UrlmappingController {
 
     @GetMapping("/totalClicks")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Map<LocalDate, Long>> getTotalClicksByDate(Principal principal,
-                                                                     @RequestParam("startDate") String startDate,
-                                                                     @RequestParam("endDate") String endDate){
+    public ResponseEntity<Map<LocalDate, Long>> getTotalClicksByDate(
+                                                    Principal principal,
+                                            @RequestParam("startDate") String startDate,
+                                            @RequestParam("endDate") String endDate){
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
         Users user = userservice.findByUsername(principal.getName());
         LocalDate start = LocalDate.parse(startDate, formatter);
